@@ -3,9 +3,9 @@ import java.util.Scanner;
  {
   public static void main(String args[])
   {
-      Scanner in = new Scanner(System.in);
+      Scanner sc = new Scanner(System.in);
         System.out.println("Enter a number");
-        int num = in.nextInt();
+        int num = sc.nextInt();
         int c=0, sqr = num*num;
         int temp =num;  
         while(temp>0){
