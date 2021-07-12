@@ -1,53 +1,46 @@
-class Stringconversion
+import java.io.BufferedReader; 
+import java.io.IOException; 
+import java.io.InputStreamReader; 
+public class Main1
 {
- public static String convert(String str)
-
-    {
-      char ch[] = str.toCharArray();
-
-        for (int i = 0; i < str.length(); i++) 
-        {
-           if (i == 0 && ch[i] != ' ' || 
-
-                ch[i] != ' ' && ch[i - 1] == ' ')
-           {
-              if (ch[i] >= 'a' && ch[i] <= 'z')
-              {
-                {
-                  ch[i] = (char)(ch[i] - 'a' + 'A');
-
-                }
-
-            }
- 
-
-            
-            else if (ch[i] >= 'A' && ch[i] <= 'Z') 
- 
-
-                
-
-                ch[i] = (char)(ch[i] + 'a' - 'A');            
-
-        }
- 
-
+ public static void main(String[] args)throws IOException    
+ {
+     
+     System.out.println("input");
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String str = br.readLine();
+    String s = "";
+    
+    int flag=0;
+    
+    if(Character.isLowerCase(str.charAt(0))==true)
+       s=s+(char)(str.charAt(0)-32);
        
-
-        String st = new String(ch);
-
-        return st;
-
-    }
- 
-
-    public static void main(String[] args)
-
+     else
+         s=s+(char)(str.charAt(0));
+    
+    for(int i=1;i<str.length();i++)
     {
-
-        String str = "welcome to java";
-
-        System.out.println(convert(str));
-
+        
+         if(Character.isLowerCase(str.charAt(i))==true)
+        {
+            char c=(char)(str.charAt(i-1));
+               if(c==' ')
+            {
+              char ch= (char)(str.charAt(i)-32);
+              s = s + ch;
+               flag=1;
+            }
+        }
+           
+           if(flag==0)
+        {
+            s = s + str.charAt(i);
+        }
+          flag=0;
     }
+    
+    System.out.println("Output:");
+    System.out.println(s);
+  }
 }
