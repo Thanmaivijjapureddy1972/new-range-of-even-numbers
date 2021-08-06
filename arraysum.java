@@ -1,5 +1,5 @@
 import java.util.*;
-class xyz
+class arraysum
 {
 public static void main(String args[])
 {
